@@ -38,12 +38,12 @@
 		<property name="dataSource" ref="dataSource" />
 		<!-- 对应实体类所在的包，自动取对应包中不包括包名的简单类名作为类的别名。
 			多个package之间可以用逗号或分号等分隔 -->
-		<property name="typeAliasesPackage" value="com.jnmd.ssm.domain" />
+		<property name="typeAliasesPackage" value="com.jnmd.liuwan.domain" />
 	</bean>
 
 	<!-- 配置自动扫描器, 将Mapper接口生成代理注入Spring -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.jnmd.ssm.mapper" />
+		<property name="basePackage" value="com.jnmd.liuwan.mapper" />
 	</bean>
 	
 	<!-- 配置事务管理对象 -->
@@ -52,7 +52,7 @@
 	</bean>
 	
 	<!-- 使用Spring注解实现注入 -->
-	<context:component-scan base-package="com.jnmd.ssm.mapper, com.jnmd.ssm.service"/>
+	<context:component-scan base-package="com.jnmd.liuwan.mapper, com.jnmd.liuwan.service"/>
 	
 	<!-- 事务管理注解配置 -->
 	<tx:annotation-driven 
