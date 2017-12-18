@@ -18,8 +18,8 @@
 		location: 代表静态资源在项目中的实际路径
 		mapping:　代表静态资源映射的路径
 	 -->
-	<mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>
-	<mvc:resources location="/WEB-INF/img/" mapping="/img/**"/>
+	<mvc:resources location="/css/" mapping="/css/**"/>
+	<mvc:resources location="/img/" mapping="/img/**"/>
 	
 	<!-- fileupload bean -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -28,7 +28,7 @@
 	</bean>
 	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/jsp/"/>
+		<property name="prefix" value="/WEB-INF/jsp/admin/"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
 	

@@ -1,6 +1,7 @@
 package com.jnmd.liuwan.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -18,8 +19,13 @@ public class HotelService{
 	private HotelMapper hotelMapper;
 	
 	@Transactional(propagation=Propagation.SUPPORTS)
-	public List<Hotel> getHotels(){
-		return hotelMapper.getHotels();
+	public List<Hotel> getHotels(Map<String,Object> map){
+		return hotelMapper.getHotels(map);
+	}
+	
+	@Transactional(propagation=Propagation.SUPPORTS)
+	public int maxNum(){
+		return hotelMapper.maxNum();
 	}
 	
 }

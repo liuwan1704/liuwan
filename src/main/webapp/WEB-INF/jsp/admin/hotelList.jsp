@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="./css/public.css">
+<link rel="stylesheet" href="./css/hotelList.css">
 <title>酒店列表</title>
 </head>
 <body>
@@ -37,13 +38,56 @@
 				</div>
 			</div>
 		</div>
-		<!-- <div class="pos"><a href="#">首页</a> &gt; 伴手礼</div> -->
-		<div class="banner"></div>
-		<div class="content">
+		<div id="content">
 			<c:forEach	items="${hotels }" var="hotel">
-				
+				<div class="Hotel_Detail">
+				<div class="hotel_pics">
+					<img src="./img/msgimg/fang2.jpg" alt="">
+				</div>
+				<div class="hotel_msg">
+					<p class="hotel_name">${hotel.name }</p>
+					<div class="msg_bottom">
+						<div class="msg_left">
+							<p class="level">酒店星级:</p>
+							<p class="level">联系方式:</p>
+							<p class="level">酒店地址:</p>
+							<p class="level">房间特色:</p>
+							<p class="level">酒店服务:</p>
+						</div>
+						<div class="msg_mid">
+							<p class="level_msg">${hotel.level }星</p>
+							<p class="level_msg">${hotel.contact }</p>
+							<p class="level_msg">${hotel.address }</p>
+							<p class="level_msg">${hotel.feature }</p>
+							<p class="level_msg">${hotel.serverDesc }</p>
+						</div>
+						<div class="msg_right">
+							<a class="hotel_handel" href="##">房间</a>
+							<a class="hotel_handel" href="##">修改</a>
+							<a class="hotel_handel" href="##">删除</a>
+						</div>
+					</div>
+				</div>
+			</div>
 			</c:forEach>
 		</div>
+		<center id="cent">
+			<a href="<% request.getContextPath();%>getHotels?pageNum=1">首页</a>&nbsp;&nbsp;
+			<c:if test="${pageNum == 1 }">
+				上一页&nbsp;&nbsp;
+			</c:if>
+			<c:if test="${pageNum != 1 }">
+				<a href="<% request.getContextPath();%>getHotels?pageNum=${pageNum-1 }">上一页</a>&nbsp;&nbsp;
+			</c:if>
+			
+			<c:if test="${pageNum == pageMax }">
+				下一页&nbsp;&nbsp;
+			</c:if>
+			<c:if test="${pageNum != pageMax }">
+				<a href="<% request.getContextPath();%>getHotels?pageNum=${pageNum+1 }">下一页</a>&nbsp;&nbsp;
+			</c:if>
+			<a href="<% request.getContextPath();%>getHotels?pageNum=${pageMax }">尾页</a><br/><br/>
+		</center>
 		<div class="footer">
 			<div class="con1">
 			<div>

@@ -1,9 +1,14 @@
 package com.jnmd.liuwan.mapper;
 
 import java.util.List;
+import java.util.Map;
+
+import org.springframework.stereotype.Repository;
 
 import com.jnmd.liuwan.domain.Hotel;
 
+@Repository
 public interface HotelMapper {
-	public List<Hotel> getHotels();
+	public List<Hotel> getHotels(Map<String,Object> map);
+	public int maxNum();
 }
