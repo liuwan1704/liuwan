@@ -1,8 +1,9 @@
 package com.jnmd.liuwan.mapper;
 
-import org.springframework.stereotype.Repository;
+import java.util.List;
 
-@Repository
-public class HotelMapper {
-	
+import com.jnmd.liuwan.domain.Hotel;
+
+public interface HotelMapper {
+	public List<Hotel> getHotels();
 }

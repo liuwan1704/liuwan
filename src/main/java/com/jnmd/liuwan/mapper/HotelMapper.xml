@@ -3,5 +3,8 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jnmd.liuwan.mapper.HotelMapper">
-
+	<select id="getHotels" resultType="Hotel">
+		select hid, name, contact, address, feature, level, serverDesc
+		from hotel_msg 
+	</select>
 </mapper>
