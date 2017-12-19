@@ -62,7 +62,7 @@
 							<p class="level_msg">${s.hotel.serverDesc }</p>
 						</div>
 						<div class="msg_right">
-							<a class="hotel_handel" href="##">详情</a>
+							<a class="hotel_handel" href="houseList?hid=${s.hotel.hid }">详情</a>
 							<a class="hotel_handel" href="##">修改</a>
 							<a class="hotel_handel" href="##">删除</a>
 						</div>

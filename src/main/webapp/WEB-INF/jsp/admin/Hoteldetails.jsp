@@ -38,7 +38,6 @@
 				</div>
 			</div>
 		</div>
-
 		<div class="banner"></div>
 		<div id="content">
 			
