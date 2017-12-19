@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jnmd.liuwan.domain.Hotel;
+import com.jnmd.liuwan.domain.HotelMid;
 import com.jnmd.liuwan.domain.HotelPic;
+import com.jnmd.liuwan.domain.HotelPrice;
 import com.jnmd.liuwan.service.HotelService;
 
 
@@ -39,6 +41,18 @@ public class HotelController {
 		mv.addObject("hotels", hotels);
 		mv.addObject("pageNum",pageNum);
 		mv.addObject("pageMax", pageMax);
+		return mv;
+	}
+	
+	@RequestMapping("/getAllHouse")
+	public ModelAndView getAllHouse(HttpServletRequest request){
+		Map<String,Object> map = new HashMap<String,Object>();
+		int hid = Integer.parseInt(request.getParameter("hid"));
+		map.put("hid", hid);
+		ModelAndView mv = new ModelAndView();
+		List<HotelPrice> hotelPrices = hotelService.getAllHouse(map);
+		mv.setViewName("test");
+		mv.addObject("hotelPrices", hotelPrices);
 		return mv;
 	}
 }

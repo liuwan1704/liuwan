@@ -10,7 +10,9 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jnmd.liuwan.domain.Hotel;
+import com.jnmd.liuwan.domain.HotelMid;
 import com.jnmd.liuwan.domain.HotelPic;
+import com.jnmd.liuwan.domain.HotelPrice;
 import com.jnmd.liuwan.mapper.HotelMapper;
 
 @Service
@@ -28,7 +30,9 @@ public class HotelService{
 	public int maxNum(){
 		return hotelMapper.maxNum();
 	}
-	
-	
+	@Transactional(propagation=Propagation.SUPPORTS)
+	public List<HotelPrice> getAllHouse(Map<String,Object> map){
+		return hotelMapper.getAllHouse(map);
+	}
 	
 }

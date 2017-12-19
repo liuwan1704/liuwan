@@ -9,5 +9,6 @@
 <body>
 <h2>dasdadsa</h2>
 <a href="getHotels?pageNum=1">酒店列表</a>
+<a href="getAllHouse?hid=1">酒店列表</a>
 </body>
 </html>

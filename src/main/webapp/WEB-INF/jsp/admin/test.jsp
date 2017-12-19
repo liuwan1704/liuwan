@@ -5,13 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>房间列表</title>
 </head>
 <body>
-<c:forEach	items="${hotels }" var="hotel">
-	<h2>${hotel.hotel }</h2>
-	<br/>
-	<h2> ${hotel.picPath } </h2>
+<c:forEach	items="${hotelPrices }" var="house">
+	${house }
 </c:forEach>
 </body>
 </html>

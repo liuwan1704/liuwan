@@ -31,24 +31,21 @@
      		<id property="hid" column="hid"/>
      	</association>
      	<collection property="hotelPrice" javaType="java.util.List" ofType="com.jnmd.liuwan.domain.HotelPrice">
-     		<id property="hpid" column="hpid"/>
+     		<id property="pid" column="pid"/>
      		<result property="price" column="price"/>
      		<result property="area" column="area"/>
      		<result property="floor" column="floor"/>
      		<result property="smoke" column="smoke"/>
      		<result property="peomax" column="peomax"/>
-     		<association property="houseType" javaType="com.jnmd.liuwan.domain.HouseType">
-     			<id property="houseId" column="houseId"/>
-     			<result property="houseType" column="houseType"/>
-     		</association>
      	</collection>
      </resultMap>
-     <select id="getHouses" parameterType="Map" resultMap="HotelMid">
-     	select * from
-     	house_price p,house_type t,hotel
-     	where p.hpid = (select pid from hotel_mid where pid = #{hid})
-     	and
-     	p.house_id = t.houseId
-     	and
+     <select id="getAllHouse" parameterType="Map" resultType="com.jnmd.liuwan.domain.HotelPrice">
+     	select * from 
+     	hotel_price p where
+     	p.hpid in (
+     		select m.pid from
+     		hotel_mid m
+     		where m.hid = #{hid}
+     	)
      </select>
 </mapper>
