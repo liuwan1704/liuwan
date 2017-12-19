@@ -7,4 +7,8 @@ public class Admin {
 	public void po(){
 		System.out.println(2);
 	}
+	public void ppp(){
+	    
+	       System.out.println("333333333333333");
+	}
 }
