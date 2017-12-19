@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jnmd.liuwan.domain.Hotel;
+import com.jnmd.liuwan.domain.HotelPic;
 import com.jnmd.liuwan.service.HotelService;
 
 
@@ -32,9 +33,7 @@ public class HotelController {
         map.put("pagesize",5);
 		List<Hotel> hotels = hotelService.getHotels(map);
 		int maxNum = hotelService.maxNum();
-		System.out.println(maxNum);
 		int pageMax = (int)(Math.ceil(maxNum*1.0/5));
-		System.out.println(pageMax);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("hotelList");
 		mv.addObject("hotels", hotels);

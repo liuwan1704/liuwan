@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.stereotype.Repository;
 
 import com.jnmd.liuwan.domain.Hotel;
+import com.jnmd.liuwan.domain.HotelPic;
 
 @Repository
 public interface HotelMapper {

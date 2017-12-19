@@ -39,13 +39,13 @@
 			</div>
 		</div>
 		<div id="content">
-			<c:forEach	items="${hotels }" var="hotel">
+			<c:forEach	items="${hotels }" var="s">
 				<div class="Hotel_Detail">
 				<div class="hotel_pics">
-					<img src="./img/msgimg/fang2.jpg" alt="">
+					<img src="${s.picPath }" alt="${s.hotel.name }">
 				</div>
 				<div class="hotel_msg">
-					<p class="hotel_name">${hotel.name }</p>
+					<p class="hotel_name">${s.hotel.name }</p>
 					<div class="msg_bottom">
 						<div class="msg_left">
 							<p class="level">酒店星级:</p>
@@ -55,14 +55,14 @@
 							<p class="level">酒店服务:</p>
 						</div>
 						<div class="msg_mid">
-							<p class="level_msg">${hotel.level }星</p>
-							<p class="level_msg">${hotel.contact }</p>
-							<p class="level_msg">${hotel.address }</p>
-							<p class="level_msg">${hotel.feature }</p>
-							<p class="level_msg">${hotel.serverDesc }</p>
+							<p class="level_msg">${s.hotel.level }星</p>
+							<p class="level_msg">${s.hotel.contact }</p>
+							<p class="level_msg">${s.hotel.address }</p>
+							<p class="level_msg">${s.hotel.feature }</p>
+							<p class="level_msg">${s.hotel.serverDesc }</p>
 						</div>
 						<div class="msg_right">
-							<a class="hotel_handel" href="##">房间</a>
+							<a class="hotel_handel" href="##">详情</a>
 							<a class="hotel_handel" href="##">修改</a>
 							<a class="hotel_handel" href="##">删除</a>
 						</div>

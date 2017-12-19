@@ -3,14 +3,26 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jnmd.liuwan.mapper.HotelMapper">
-	<select id="getHotels" parameterType="Map" resultType="Hotel">
-		select hid, name, contact, address, feature, level, serverDesc
-		from hotel_msg
-		<if test="start!=null and pagesize!=null">  
-        limit #{start},#{pagesize}  
-    	</if>
-	</select>
 	<select id="maxNum" resultType="int">
 		select count(*) from hotel_msg
 	</select>
+	<select id="getHotels" parameterType="Map" resultMap="HotelPic">
+		select *
+		from hotel_msg h,hotel_pic p 
+		where p.hid = h.hid
+		limit #{start},#{pagesize} 
+	</select>
+	<resultMap type="com.jnmd.liuwan.domain.HotelPic" id="HotelPic">
+         <id property="pid" column="pid"/>
+         <result property="picPath" column="picpath"/>
+         <association property="hotel" javaType="com.jnmd.liuwan.domain.Hotel">
+             <id property="hid" column="hid"/>
+             <result property="name" column="name"/>
+             <result property="contact" column="contact"/>
+             <result property="address" column="address"/>
+             <result property="feature" column="feature"/>
+             <result property="level" column="level"/>
+             <result property="serverDesc" column="serverDesc"/>
+         </association>
+     </resultMap>
 </mapper>
