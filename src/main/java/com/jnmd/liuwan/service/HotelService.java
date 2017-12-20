@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.omg.CORBA.UserException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,6 +14,7 @@ import com.jnmd.liuwan.domain.Hotel;
 import com.jnmd.liuwan.domain.HotelMid;
 import com.jnmd.liuwan.domain.HotelPic;
 import com.jnmd.liuwan.domain.HotelPrice;
+import com.jnmd.liuwan.exception.HotelException;
 import com.jnmd.liuwan.mapper.HotelMapper;
 
 @Service
@@ -33,6 +35,11 @@ public class HotelService{
 	@Transactional(propagation=Propagation.SUPPORTS)
 	public List<HotelPrice> getAllHouse(Map<String,Object> map){
 		return hotelMapper.getAllHouse(map);
+	}
+	
+	@Transactional(rollbackFor=HotelException.class)
+	public void deleteHouse(Map<String,Object> map){
+		hotelMapper.deleteHouse(map);
 	}
 	
 }

@@ -8,8 +8,6 @@
 <title>房间列表</title>
 </head>
 <body>
-<c:forEach	items="${hotelPrices }" var="house">
-	${house }
-</c:forEach>
+ ${hpid } 删除成功!!
 </body>
 </html>

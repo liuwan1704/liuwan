@@ -25,27 +25,41 @@
              <result property="serverDesc" column="serverDesc"/>
          </association>
      </resultMap>
-     <resultMap type="com.jnmd.liuwan.domain.HotelMid" id="HotelMid">
-     	<id property="mid" column="mid"/>
-     	<association property="hotel" javaType="com.jnmd.liuwan.domain.Hotel">
-     		<id property="hid" column="hid"/>
-     	</association>
-     	<collection property="hotelPrice" javaType="java.util.List" ofType="com.jnmd.liuwan.domain.HotelPrice">
-     		<id property="pid" column="pid"/>
-     		<result property="price" column="price"/>
-     		<result property="area" column="area"/>
-     		<result property="floor" column="floor"/>
-     		<result property="smoke" column="smoke"/>
-     		<result property="peomax" column="peomax"/>
-     	</collection>
+     <resultMap type="com.jnmd.liuwan.domain.HotelPrice" id="houseList">
+     	<id property="hpid" column="hpid"/>
+   		<result property="price" column="price"/>
+   		<result property="area" column="area"/>
+   		<result property="floor" column="floor"/>
+   		<result property="smoke" column="smoke"/>
+   		<result property="peomax" column="peomax"/>
+   		<association property="houseType" javaType="com.jnmd.liuwan.domain.HouseType">
+   			<id property="houseId" column="houseId"/>
+   			<result property="houseType" column="houseType"/>
+   		</association>
+   		<association property="province" javaType="com.jnmd.liuwan.domain.Province">
+   			<id property="cityId" column="cityid"/>
+   			<result property="cityName" column="cityname"/>
+   		</association>
+   		<collection property="housePic" javaType="java.util.List" ofType="com.jnmd.liuwan.domain.HousePic">
+   			<id property="hpid" column="hpid"/>
+   			<result property="picPath" column="picPath"/>
+   		</collection>
      </resultMap>
-     <select id="getAllHouse" parameterType="Map" resultType="com.jnmd.liuwan.domain.HotelPrice">
-     	select * from 
-     	hotel_price p where
+     <select id="getAllHouse" parameterType="Map" resultMap="houseList">
+     	select *
+     	from 
+     	hotel_price p,house_type t, house_pic c,province pr
+     	where
      	p.hpid in (
      		select m.pid from
      		hotel_mid m
      		where m.hid = #{hid}
      	)
+     	and p.house_id = t.houseId
+     	and p.hpid = c.housepid
+     	and p.city_id = pr.cityId
      </select>
+     <delete id="deleteHouse" parameterType="Map">
+     	delete from hotel_price where hpid=#{hpid}
+     </delete>
 </mapper>

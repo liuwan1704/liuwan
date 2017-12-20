@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="./css/public.css">
+<link rel="stylesheet" href="./css/houseList.css">
 <title>房间列表</title>
 </head>
 <body>
@@ -50,21 +52,23 @@
 				<li class="house_msg"></li>
 				<li class="house_msg"></li>
 			</ol>
-			<ol class="house_message">
-				<li class="house_pic"><img class="photo" src="imgs/biaozhunjian.jpg" alt="酒店图片"></li>
-				<li class="message_house">北京</li>
-				<li class="message_house">160</li>
-				<li class="message_house">3</li>
-				<li class="message_house">是</li>
-				<li class="message_house">5</li>
-				<li class="message_house">1600</li>
-				<li class="house_btnnn">
-					<a class="bbbtn" href="##">修改</a>
-				</li>
-				<li class="house_btnnn">
-					<a class="bbbtn" href="##">删除</a>
-				</li>
-			</ol>
+			<c:forEach	items="${hotelPrices }" var="house">
+				<ol class="house_message">
+					<li class="house_pic"><img class="photo" src="${house.housePic[0].picPath }" alt="酒店图片"></li>
+					<li class="message_house">${house.province.cityName }</li>
+					<li class="message_house">${house.area }</li>
+					<li class="message_house">${house.floor }</li>
+					<li class="message_house">${house.smoke }</li>
+					<li class="message_house">${house.peomax }</li>
+					<li class="message_house">${house.price }</li>
+					<li class="house_btnnn">
+						<a class="bbbtn" href="##">修改</a>
+					</li>
+					<li class="house_btnnn">
+						<a class="bbbtn" href="##">删除</a>
+					</li>
+				</ol>
+			</c:forEach>
 		</div>
 		<div class="footer">
 			<div class="con1">
@@ -97,7 +101,7 @@
 					<li class="list">
 						<ul>
 							<li><h3><a href="">关注我们</a></h3></li>
-							<li style="margin-top:15px;"><span><img src="./imgs/VB.png" alt="微博">&nbsp;&nbsp;<img src="./imgs/VX.png" alt="微信"></span></li>
+							<li style="margin-top:15px;"><span><img src="./img/pageimg/VB.png" alt="微博">&nbsp;&nbsp;<img src="./img/pageimg/VX.png" alt="微信"></span></li>
 						</ul>
 					</li>
 					<li class="list">

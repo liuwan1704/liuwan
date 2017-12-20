@@ -9,6 +9,6 @@
 <body>
 <h2>dasdadsa</h2>
 <a href="getHotels?pageNum=1">酒店列表</a>
-<a href="getAllHouse?hid=1">酒店列表</a>
+<a href="deleteHouse?hpid=1">删除id为1的酒店房间</a>
 </body>
 </html>
