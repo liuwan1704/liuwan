@@ -62,8 +62,20 @@ public class HotelController {
 		map.put("hpid",hpid);
 		ModelAndView mv = new ModelAndView();
 		hotelService.deleteHouse(map);
+		hotelService.deleteMidByPid(map);
 		mv.setViewName("houseList");
 		mv.addObject("hpid",hpid );
 		return mv;
+	}
+	@RequestMapping("/deleteHotel")
+	public ModelAndView deleteHotel(HttpServletRequest request){
+		Map<String,Object> map = new HashMap<String,Object>();
+		int hid = Integer.parseInt(request.getParameter("hid"));
+		map.put("hid", hid);
+		ModelAndView mv = new ModelAndView();
+		hotelService.deleteHotel(map);
+		mv.setViewName("test");
+		return mv;
+		
 	}
 }

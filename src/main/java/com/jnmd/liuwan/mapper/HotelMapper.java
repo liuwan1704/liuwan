@@ -16,4 +16,6 @@ public interface HotelMapper {
 	public int maxNum();
 	public List<HotelPrice> getAllHouse(Map<String,Object> map);
 	public void deleteHouse(Map<String,Object> map);
+	public void deleteMidByPid(Map<String,Object> map);
+	public void deleteHotel(Map<String,Object> map);
 }

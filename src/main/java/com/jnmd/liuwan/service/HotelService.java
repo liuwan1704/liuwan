@@ -41,5 +41,12 @@ public class HotelService{
 	public void deleteHouse(Map<String,Object> map){
 		hotelMapper.deleteHouse(map);
 	}
-	
+	@Transactional(rollbackFor=HotelException.class)
+	public void deleteMidByPid(Map<String,Object> map){
+		hotelMapper.deleteMidByPid(map);
+	}
+	@Transactional(rollbackFor=HotelException.class)
+	public void deleteHotel(Map<String,Object> map){
+		hotelMapper.deleteHotel(map);
+	}
 }

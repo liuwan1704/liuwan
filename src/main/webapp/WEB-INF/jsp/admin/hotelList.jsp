@@ -64,7 +64,7 @@
 						<div class="msg_right">
 							<a class="hotel_handel" href="getAllHouse?hid=${s.hotel.hid }">详情</a>
 							<a class="hotel_handel" href="##">修改</a>
-							<a class="hotel_handel" href="##">删除</a>
+							<a class="hotel_handel" href="deleteHotel?hid=${s.hotel.hid }">删除</a>
 						</div>
 					</div>
 				</div>

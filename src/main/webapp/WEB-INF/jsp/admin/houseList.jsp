@@ -65,7 +65,7 @@
 						<a class="bbbtn" href="##">修改</a>
 					</li>
 					<li class="house_btnnn">
-						<a class="bbbtn" href="##">删除</a>
+						<a class="bbbtn" href="deleteHouse?hpid=${house.hpid }">删除</a>
 					</li>
 				</ol>
 			</c:forEach>

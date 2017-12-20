@@ -10,6 +10,7 @@
 		select *
 		from hotel_msg h,hotel_pic p 
 		where p.hid = h.hid
+		order by h.hid desc
 		limit #{start},#{pagesize} 
 	</select>
 	<resultMap type="com.jnmd.liuwan.domain.HotelPic" id="HotelPic">
@@ -62,4 +63,11 @@
      <delete id="deleteHouse" parameterType="Map">
      	delete from hotel_price where hpid=#{hpid}
      </delete>
+     <delete id="deleteMidByPid" parameterType="Map">
+     	delete from hotel_mid where pid = #{hpid}
+     </delete>
+     <delete id="deleteHotel" parameterType="Map">
+     	delete from hotel_msg where hid=#{hid}
+     </delete>
+     
 </mapper>
