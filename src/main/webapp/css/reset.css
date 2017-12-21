@@ -1,0 +1,33 @@
+@charset "utf-8";
+/*==================Reset_start===================*/
+body,h1,h2,h3,h4,h5,h6,div,p,dl,dt,dd,ol,ul,li,form,table,th,td,a,img,span,strong,var,em,input,textarea,select,option{margin: 0; padding: 0;}
+html,body{font-family: "微软雅黑","宋体",Arail,Tabhoma; font-size: 14px; text-align: left;color: #3c3c3c;}
+ul,ol{list-style: none;}
+img{border: 0;}
+input,select,textarea{outline:0;}
+textarea{resize:none; overflow: auto;}
+table{border-collapse: collapse; border-spacing: 0;}
+th,strong,var,em{font-weight: normal; font-style: normal;}
+a{text-decoration: none;}
+input{  
+   background:none;  
+   outline:none;  
+   border:0px; 
+   display: block; 
+}  
+select{
+	-webkit-appearance: none; 
+	-moz-appearance: none; 
+	-o-appearance: none; 
+	appearance: none;
+	-ms-appearance:none;
+	padding-left: 8px;
+	background: url("../imgs/xiaojiantou_03.png") no-repeat scroll right center transparent;  
+  
+   
+  /* 	padding-right: px;  */
+
+}
+
+/*根据项目需要，自行添加或删减重置内容*/
+/*==================Reset_End====================*/

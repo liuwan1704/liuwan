@@ -42,4 +42,15 @@ public class HotelService{
 		hotelMapper.deleteHouse(map);
 	}
 	
+	
+	@Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
+	public Hotel getHotel(int hid){
+		return hotelMapper.getHotel(hid);
+	}
+	
+	@Transactional(rollbackFor=HotelException.class)
+	public void updateHotelId(Hotel hotel){
+		hotelMapper.updateHotelId(hotel);
+	}
+	
 }

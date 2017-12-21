@@ -1,0 +1,345 @@
+
+/******************************************** 内容框 *********************************/
+#content{
+	width: 1000px;
+	margin: 0 auto 30px;
+}
+/* 左右内容框 */
+#content .conleft{
+	width: 542px;
+	height: 600px;
+	border: 1px solid #3c3c3c;
+	padding: 20px;
+	overflow: hidden;
+	padding-bottom: 20px;
+	margin: 0 auto;
+
+}
+/* .content .conright{
+	float: right;
+	width: 406px;
+	border: 1px solid #3c3c3c;
+		padding-bottom: 20px;
+} */
+#content .page{
+	clear: left;
+}
+
+
+
+
+
+/****************** 标准 *******************/
+#comentit{
+	width: 78px;
+	height: 25px;
+	line-height: 25px;
+	font-size: 14px;
+	color: #3c3c3c;
+	float: left;
+}
+.conleft .comenbox{
+	width: 137px;
+	height: 23px;
+	border: 1px solid #3c3c3c;
+	float: left;
+	margin-right: 14px;
+}
+
+/* 酒店名称框 */
+
+
+
+
+
+#conliangcon{
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+/* 左内容框 */
+.content .conleft .title{
+	font-size: 16px;
+	color: #3c3c3c;
+	height: 16px;
+	line-height: 16px;
+	padding-top: 16px;
+	padding-bottom: 10px;
+	width: 445px;
+	border-bottom: 1px dashed #6e6e6e;
+	margin-bottom: 9px;
+}
+
+#ll{
+	height: 28px;
+	width: 80px;
+	background: #176fbb;
+	color:white;
+}
+
+/* 至少填写1人，所填写姓名需与入住时所持证件一致 */
+#conliangcon p{
+	font-size: 12px;
+	color: #6e6e6e;
+	height: 12px;
+	line-height: 12px;
+	padding-left: 78px;
+}
+/********************************** 最晚抵店 *******/
+.title2{
+	overflow: hidden;
+	padding-top: 13px;
+	padding-bottom:5px ;
+	border-bottom:1px dashed #6e6e6e;
+	border-top:1px solid #6e6e6e;
+	margin-bottom: 10px;
+}
+.title2 p{
+	font-size: 12px;
+	color: #6e6e6e;
+	height: 25px;
+	line-height: 25px;
+	float: left;
+}
+/****************************** 手机号码 ***************************/
+.conleft #conliangcon .zhongguodalu{
+	width: 112px;
+	height: 23px;
+	border: 1px solid #3c3c3c;
+	float: left;
+}
+.conleft #conliangcon .shoujihaoma{
+	width: 149px;
+	height: 23px;
+	border-top: 1px solid #3c3c3c;
+	border-bottom: 1px solid #3c3c3c;
+	border-right: 1px solid #3c3c3c;
+	float: left;
+}
+.conleft #conliangcon .yudingchenggonghouhuifaduanxin{
+	font-size: 12px;
+	color: #6e6e6e;
+	height: 25px;
+	line-height: 25px;
+	float: left;
+	padding-left: 12px;
+}
+/* *********************电子邮件************************** */
+#conjc{
+	padding-bottom:25px;
+	border-bottom:1px solid #6e6e6e ;
+	overflow: hidden;
+}
+#conjc .dianziyoujian{
+	width: 200px;
+	height: 23px;
+	border: 1px solid #3c3c3c;
+	float: left;
+}
+/***************** 需要发票 **************/
+.conleft .fapiao{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding-left: 17px;
+	overflow: hidden;
+	position: relative;
+}
+.conleft .fapiao .gougou{
+	position: absolute;
+	left: 0;
+	top: 2px;
+	width:10px ;
+	height: 10px;
+	border:1px solid #3c3c3c ;
+}
+
+
+
+.conleft .fapiao .xuyaofapiao{
+	color: #3c3c3c;
+	font-size: 12px;
+	font-weight: bold;
+
+}
+/* 发票类型 */
+#fapiaocon{
+	width: 78px;
+	height: 25px;
+	line-height: 25px;
+	font-size: 12px;
+	color: #3c3c3c;
+	float: left;
+}
+.fapiao div{
+	width: 403px;
+	height: 23px;
+	border:1px solid #3c3c3c;
+	float: left;
+}
+.fapiao input{
+	width: 403px;
+	height: 23px;
+	border:1px solid #3c3c3c;
+	float: left;
+}
+.fapiao .bangzhu{
+	background: url(../imgs/imgs03/bangzhu_06.png) 0 0 no-repeat;
+	width: 17px;
+	height: 17px;
+	float: right;
+	margin-top: 4px;
+	margin-right: 4px;
+}
+/* 取消说明 */
+.quxiaoshuoming{
+	font-size: 12px;
+	color: #6e6e6e;
+	padding-right: 25px;
+	margin-bottom: 20px;
+}
+/* 预收房费 */
+.yushoufangfei{
+	float: right;
+	margin-bottom: 20px;
+	margin-right: 35px;
+	font-size: 14px;
+	color: #3c3c3c;
+	font-weight: bold;
+}
+.yushoufangfei span{
+	color: #cc0000;
+	font-size: 18px;
+}
+.tijiaodingdan{
+	clear: right;
+	float: right;
+	width: 136px;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	background:  url(../imgs/imgs03/tijiaodingdan_03.png) 0 0 no-repeat;
+	font-size: 16px;
+	color: #ffffff;
+	margin-right: 19px;
+}
+/* 修改航班 */
+.xiugaihangban{
+	color: #ffa000;
+	font-size: 12px;
+	height: 36px;
+	line-height: 36px;
+	float: right;
+	text-decoration: underline;
+	margin-right: 40px;
+
+}
+
+
+
+
+/**************************************************** 右边内容 *****************************************/
+
+/* .nindexuanze{
+	height: 37px;
+	background-color: #d2d2d2;
+	padding-left: 20px;
+
+	height: 37px;
+	line-height: 37px;
+	font-size: 16px;
+	color: #3c3c3c;
+}
+标准
+.biaozhundexuanze{
+	padding-top: 18px;
+	padding-left:20px ;
+	overflow: hidden;
+}
+第一块
+.xilaideng{
+	float: left;
+	margin-right: 30px;
+}
+.tupianyouce{
+	float: left;
+}
+.conright h3{
+	font-size: 14px;
+	color: #3c3c3c;
+}
+.tupianyouce img{
+	display: block;
+	height: 18px;
+	width: 123px;
+	margin-top: 13px;
+	margin-bottom: 43px;
+}
+.ruzhutime{
+	font-weight: normal;
+}
+
+ */
+
+/* 服务 */
+.hotelbottom{
+		overflow: hidden;
+		border-top:none;
+	}
+.hotelbottom h3{
+		height: 21px;
+		line-height: 21px;
+		font-size: 14px;
+		float: left;
+		word-spacing: 23px;
+	}
+.hotelbottom p{
+		padding-left: 28px;
+		float: left;
+		width: 78px;
+		height: 21px;
+		line-height: 21px;
+		position: relative;
+		margin-left: 20px;
+	}
+.hotelbottom .ppp{
+		margin-left: 0px;
+	}
+.hotelbottom p img{
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	}
+
+/* 入住一晚三件客房 */
+.ruzhumessage{
+	border-top: 1px dashed #6e6e6e;
+	margin-top: 20px;
+}
+.ruzhuyiwan{
+	font-size: 14px;
+	margin-right: 68px;
+}
+/* 应付金额 */
+.realjine{
+	position: relative;
+	height: 18px;
+	padding-right: 22px;
+	padding-bottom: 25px;
+}
+.yingfujine{
+	font-size: 18px;
+	height: 18px;
+	line-height: 18px;
+	background-color: white;
+
+	position: absolute;
+	right: 22px;
+	top: 19px;
+	color: #cc0000;
+}
+.danjia{
+	position: absolute;
+	right: 24px;
+	bottom: 0px;
+	font-size: 12px;
+	color: #6e6e6e;
+}

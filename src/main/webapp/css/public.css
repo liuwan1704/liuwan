@@ -12,7 +12,6 @@ th,strong,var,em{font-weight: normal; font-style: normal;}
 a{text-decoration: none;}
 /*根据项目需要，自行添加或删减重置内容*/
 /*==================Reset_End====================*/
-
 /************** 头部样式 ************/
 .wrap{
 	min-width: 1000px;

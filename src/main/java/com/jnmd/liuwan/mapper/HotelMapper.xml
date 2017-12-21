@@ -9,7 +9,7 @@
 	<select id="getHotels" parameterType="Map" resultMap="HotelPic">
 		select *
 		from hotel_msg h,hotel_pic p 
-		where p.hid = h.hid
+		where p.pid = h.hid
 		limit #{start},#{pagesize} 
 	</select>
 	<resultMap type="com.jnmd.liuwan.domain.HotelPic" id="HotelPic">
@@ -62,4 +62,31 @@
      <delete id="deleteHouse" parameterType="Map">
      	delete from hotel_price where hpid=#{hpid}
      </delete>
+     
+     
+     
+     
+     <select id="getHotel" resultType="Hotel">
+		select hid,name,contact,address,feature,level,serverDesc,intime,outtime
+		from hotel_msg 
+		where hid = #{hid}
+	</select>
+	
+	<update id="updateHotelId" parameterType="Hotel">
+		update hotel_msg 
+		set
+				name = #{name},
+				contact = #{contact},
+				address = #{address},
+				feature = #{feature},
+				level = #{level},
+				serverDesc = #{serverDesc},
+				intime = #{intime},
+				outtime = #{outtime}
+		where hid=#{hid}
+				
+				
+	</update>
+	
+	
 </mapper>

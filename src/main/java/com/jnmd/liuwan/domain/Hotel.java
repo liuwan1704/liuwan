@@ -10,8 +10,23 @@ public class Hotel {
 	private String feature;
 	private int level;
 	private String serverDesc;
+	private String intime;
+	private String outtime;
 	private List<HotelMid> hotelMids;
 	private List<HotelPic> hotelPics;
+	
+	public String getIntime() {
+		return intime;
+	}
+	public void setIntime(String intime) {
+		this.intime = intime;
+	}
+	public String getOuttime() {
+		return outtime;
+	}
+	public void setOuttime(String outtime) {
+		this.outtime = outtime;
+	}
 	public int getHid() {
 		return hid;
 	}

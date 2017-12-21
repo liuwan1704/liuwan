@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -66,4 +67,26 @@ public class HotelController {
 		mv.addObject("hpid",hpid );
 		return mv;
 	}
+	
+	
+	@RequestMapping("/getHotel")
+	public ModelAndView updatePage(HttpServletRequest request){
+		int hid = Integer.parseInt(request.getParameter("hid"));
+		Hotel hotel=hotelService.getHotel(hid);
+		ModelAndView mv = new ModelAndView();
+		System.out.println(hotel);
+		mv.setViewName("forward:/WEB-INF/jsp/admin/updatePage.jsp");
+		mv.addObject("hotel", hotel);
+		return mv;
+	}
+	
+	@RequestMapping("/updatePageId")
+	public String updatePageId(HttpServletRequest request,Hotel hotel){
+		
+		
+		hotelService.updateHotelId(hotel);
+		
+		return "forward:/WEB-INF/jsp/admin/updateSuccess.jsp";
+	}
+	
 }
