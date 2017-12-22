@@ -10,6 +10,8 @@ public class Hotel {
 	private String feature;
 	private int level;
 	private String serverDesc;
+	private String intime;
+	private String outtime;
 	private List<HotelMid> hotelMids;
 	private List<HotelPic> hotelPics;
 	public int getHid() {
@@ -42,6 +44,18 @@ public class Hotel {
 	public void setFeature(String feature) {
 		this.feature = feature;
 	}
+	public String getIntime() {
+		return intime;
+	}
+	public void setIntime(String intime) {
+		this.intime = intime;
+	}
+	public String getOuttime() {
+		return outtime;
+	}
+	public void setOuttime(String outtime) {
+		this.outtime = outtime;
+	}
 	public int getLevel() {
 		return level;
 	}
@@ -68,16 +82,17 @@ public class Hotel {
 	}
 	public Hotel() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-	public Hotel(int hid, String name, String contact, String address, String feature, int level, String serverDesc,
-			List<HotelMid> hotelMids, List<HotelPic> hotelPics) {
+	public Hotel(int hid, String name, String contact, String address, String feature, String intime, String outtime,
+			int level, String serverDesc, List<HotelMid> hotelMids, List<HotelPic> hotelPics) {
 		super();
 		this.hid = hid;
 		this.name = name;
 		this.contact = contact;
 		this.address = address;
 		this.feature = feature;
+		this.intime = intime;
+		this.outtime = outtime;
 		this.level = level;
 		this.serverDesc = serverDesc;
 		this.hotelMids = hotelMids;
@@ -86,8 +101,8 @@ public class Hotel {
 	@Override
 	public String toString() {
 		return "Hotel [hid=" + hid + ", name=" + name + ", contact=" + contact + ", address=" + address + ", feature="
-				+ feature + ", level=" + level + ", serverDesc=" + serverDesc + ", hotelMids=" + hotelMids
-				+ ", hotelPics=" + hotelPics + "]";
+				+ feature + ", intime=" + intime + ", outtime=" + outtime + ", level=" + level + ", serverDesc="
+				+ serverDesc + ", hotelMids=" + hotelMids + ", hotelPics=" + hotelPics + "]";
 	}
 	
 }

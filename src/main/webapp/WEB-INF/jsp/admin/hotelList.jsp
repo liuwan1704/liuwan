@@ -53,6 +53,7 @@
 							<p class="level">酒店地址:</p>
 							<p class="level">房间特色:</p>
 							<p class="level">酒店服务:</p>
+							<p class="level">服务时间:</p>
 						</div>
 						<div class="msg_mid">
 							<p class="level_msg">${s.hotel.level }星</p>
@@ -60,6 +61,7 @@
 							<p class="level_msg">${s.hotel.address }</p>
 							<p class="level_msg">${s.hotel.feature }</p>
 							<p class="level_msg">${s.hotel.serverDesc }</p>
+							<p class="level_msg">${s.hotel.intime }--${s.hotel.outtime }</p>
 						</div>
 						<div class="msg_right">
 							<a class="hotel_handel" href="getAllHouse?hid=${s.hotel.hid }">详情</a>

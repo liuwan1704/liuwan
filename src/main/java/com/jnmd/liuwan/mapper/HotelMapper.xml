@@ -10,7 +10,6 @@
 		select *
 		from hotel_msg h,hotel_pic p 
 		where p.hid = h.hid
-		order by h.hid desc
 		limit #{start},#{pagesize} 
 	</select>
 	<resultMap type="com.jnmd.liuwan.domain.HotelPic" id="HotelPic">
@@ -24,6 +23,8 @@
              <result property="feature" column="feature"/>
              <result property="level" column="level"/>
              <result property="serverDesc" column="serverDesc"/>
+             <result property="intime" column="intime"/>
+             <result property="outtime" column="outtime"/>
          </association>
      </resultMap>
      <resultMap type="com.jnmd.liuwan.domain.HotelPrice" id="houseList">
