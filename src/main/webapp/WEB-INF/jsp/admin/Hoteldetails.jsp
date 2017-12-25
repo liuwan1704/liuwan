@@ -28,7 +28,7 @@
 				</div>
 				<div class="con2">
 						<span class="consy"><a class="shouye" href="#"></a></span>
-						<span class="con20"><a href="#">第一次</a></span>
+						<span class="con20"><a href="addHotel">添加酒店</a></span>
 						<span class="con20"><a href="#">目的地</a></span>
 						<span class="con20"><a href="#">自订行程</a></span>
 						<span class="con20"><a href="#">游记</a></span>

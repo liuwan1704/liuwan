@@ -49,4 +49,20 @@ public class HotelService{
 	public void deleteHotel(Map<String,Object> map){
 		hotelMapper.deleteHotel(map);
 	}
+	@Transactional(rollbackFor=HotelException.class)
+	public void addHotel(Hotel hotel){
+		hotelMapper.addHotel(hotel);
+	}
+	@Transactional(rollbackFor=HotelException.class)
+	public void addHotelPic(Map<String , Object> map){
+		hotelMapper.addHotelPic(map);
+	}
+	@Transactional(propagation=Propagation.SUPPORTS)
+	public void updateHotel(Hotel hotel){
+		hotelMapper.updateHotel(hotel);
+	}
+	@Transactional(propagation=Propagation.SUPPORTS)
+	public Hotel getHotel(int hid){
+		return hotelMapper.getHotel(hid);
+	}
 }

@@ -28,7 +28,7 @@
 				</div>
 				<div class="con2">
 						<span class="consy"><a class="shouye" href="#"></a></span>
-						<span class="con20"><a href="#">第一次</a></span>
+						<span class="con20"><a href="addHotel">添加酒店</a></span>
 						<span class="con20"><a href="#">目的地</a></span>
 						<span class="con20"><a href="#">自订行程</a></span>
 						<span class="con20"><a href="#">游记</a></span>
@@ -65,7 +65,7 @@
 						</div>
 						<div class="msg_right">
 							<a class="hotel_handel" href="getAllHouse?hid=${s.hotel.hid }">详情</a>
-							<a class="hotel_handel" href="##">修改</a>
+							<a class="hotel_handel" href="getHotel?hid=${s.hotel.hid }">修改</a>
 							<a class="hotel_handel" href="deleteHotel?hid=${s.hotel.hid }">删除</a>
 						</div>
 					</div>

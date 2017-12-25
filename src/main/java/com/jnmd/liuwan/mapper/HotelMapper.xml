@@ -70,5 +70,31 @@
      <delete id="deleteHotel" parameterType="Map">
      	delete from hotel_msg where hid=#{hid}
      </delete>
-     
+     <insert id="addHotel" parameterType="Hotel">
+     	<selectKey keyColumn="hid" keyProperty="hid" order="AFTER" resultType="int">
+   			 select @@IDENTITY as hid
+  		</selectKey>
+     	insert into hotel_msg(name,contact,address,feature,level,serverDesc,intime,outtime)
+     	values(#{name},#{contact},#{address},#{feature},#{level},#{serverDesc},#{intime},#{outtime})
+     </insert>
+     <insert id="addHotelPic" parameterType="Map">
+     	insert into hotel_pic(hid,picPath) values(#{hid},#{picPath})
+     </insert>
+     <update id="updateHotel" parameterType="com.jnmd.liuwan.domain.Hotel">
+     	update hotel_msg
+		 <trim prefix="set" suffixOverrides=",">
+		  <if test="name!=null">name=#{name},</if>
+		  <if test="contact!=null">contact=#{contact},</if>
+		  <if test="address!=null">address=#{address},</if>
+		  <if test="feature!=null">feature=#{feature},</if>
+		  <if test="level!=null">level=#{level},</if>
+		  <if test="serverDesc!=null">serverDesc=#{serverDesc},</if>
+		  <if test="intime!=null">intime=#{intime},</if>
+		  <if test="outtime!=null">outtime=#{outtime},</if>
+		 </trim>
+		where hid=#{hid}
+     </update>
+     <select id="getHotel" parameterType="int" resultType="hotel">
+     	select * from hotel_msg where hid=#{hid}
+     </select>
 </mapper>

@@ -62,5 +62,10 @@
 	<tx:annotation-driven transaction-manager="transactionManager"
 		proxy-target-class="true" />
 	
-
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">      
+	    <!-- 设置默认编码 -->    
+	    <property name="defaultEncoding" value="utf-8"></property>    
+	    <!-- 上传图片最大大小1M-->     
+	    <property name="maxUploadSize" value="1048576"></property>      
+	</bean>  
 </beans>

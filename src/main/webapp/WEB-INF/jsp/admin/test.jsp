@@ -8,6 +8,6 @@
 <title>房间列表</title>
 </head>
 <body>
- ${hpid } 删除成功!!
+成功！
 </body>
 </html>

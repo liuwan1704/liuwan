@@ -1,5 +1,10 @@
 package com.jnmd.liuwan.controller.hotelController;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,9 +12,14 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jnmd.liuwan.domain.Hotel;
@@ -77,5 +87,52 @@ public class HotelController {
 		mv.setViewName("test");
 		return mv;
 		
+	}
+	@RequestMapping("/addHotel")
+	public ModelAndView addHotel(){
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("addHotel");
+		return mv;
+	}
+	@RequestMapping("/addAHotel")
+	public ModelAndView addAhotel(Hotel hotel){
+		ModelAndView mv = new ModelAndView();
+		hotelService.addHotel(hotel);
+		mv.addObject("hid", hotel.getHid());
+		mv.setViewName("addHotelPic");
+		return mv;
+	}
+	@RequestMapping("/addHotelPic")
+	public ModelAndView addHotelPic(int hid,MultipartFile file,HttpServletRequest request)throws IOException{
+		Map<String,Object> map = new HashMap<String,Object>();
+		ModelAndView mv = new ModelAndView();
+		map.put("hid", hid);
+        String path = request.getSession().getServletContext().getRealPath("/img/msgimg");  
+        String fileName = file.getOriginalFilename();  
+        String picPath = "./img/msgimg/"+fileName;
+        map.put("picPath", picPath);
+        File dir = new File(path, fileName);  
+        if(!dir.exists()){  
+            dir.mkdirs();  
+        }  
+        hotelService.addHotelPic(map);
+        file.transferTo(dir);
+        mv.setViewName("test");
+        return mv;
+	}
+	@RequestMapping("/getHotel")
+	public ModelAndView getHotel(int hid){
+		Hotel hotel = hotelService.getHotel(hid);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("hotel", hotel);
+		mv.setViewName("updateHotel");
+		return mv;
+	}
+	@RequestMapping("/updateHotel")
+	public ModelAndView updateHotel(Hotel hotel){
+		hotelService.updateHotel(hotel);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("test");
+		return mv;
 	}
 }

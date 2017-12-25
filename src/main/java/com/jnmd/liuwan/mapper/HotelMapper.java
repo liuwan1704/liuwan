@@ -18,4 +18,8 @@ public interface HotelMapper {
 	public void deleteHouse(Map<String,Object> map);
 	public void deleteMidByPid(Map<String,Object> map);
 	public void deleteHotel(Map<String,Object> map);
+	public void addHotel(Hotel hotel);
+	public void addHotelPic(Map<String,Object> map);
+	public void updateHotel(Hotel hotel);
+	public Hotel getHotel(int hid);
 }
