@@ -62,10 +62,10 @@
 					<li class="message_house">${house.peomax }</li>
 					<li class="message_house">${house.price }</li>
 					<li class="house_btnnn">
-						<a class="bbbtn" href="##">修改</a>
+						<a class="bbbtn" href="getHouse?hpid=${house.hpid }">修改</a>
 					</li>
 					<li class="house_btnnn">
-						<a class="bbbtn" href="##">删除</a>
+						<a class="bbbtn" href="deleteHouse?hpid=${house.hpid }">删除</a>
 					</li>
 				</ol>
 			</c:forEach>

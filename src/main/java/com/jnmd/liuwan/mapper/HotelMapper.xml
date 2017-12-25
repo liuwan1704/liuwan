@@ -57,12 +57,17 @@
      	)
      	and p.house_id = t.houseId
      	and p.hpid = c.housepid
-     	and p.city_id = pr.cityId
+     	and p.city_id = pr.cityid
      </select>
      <delete id="deleteHouse" parameterType="Map">
      	delete from hotel_price where hpid=#{hpid}
      </delete>
-     
+     <delete id="deleteMidByPid" parameterType="Map">
+      	delete from hotel_mid where pid = #{hpid}
+      </delete>
+      <delete id="deleteHotel" parameterType="Map">
+      	delete from hotel_msg where hid=#{hid}
+      </delete>
      
      
      
@@ -87,6 +92,64 @@
 				
 				
 	</update>
+	<select id="getHouse" resultType="HotelPrice">
+		select hpid,price,area,floor,smoke,peomax
+		from hotel_price
+		where hpid = #{hpid}
+	</select>
 	
 	
+	<update id="updateHouse" parameterType="HotelPrice">
+		update hotel_price 
+		set
+				price = #{price},
+				area = #{area},
+				floor = #{floor},
+				smoke = #{smoke},
+				peomax = #{peomax}
+		where hpid=#{hpid}
+				
+				
+	</update>
+	
+	
+	
+	
+	<select id="getRec" resultType="com.jnmd.liuwan.domain.Recommend">
+		select rid,title,introduce,price,likes,comment
+		from bsl_recommend 
+	</select>
+	
+	<select id="getDec" resultType="com.jnmd.liuwan.domain.Recommend">
+		select description
+		from bsl_recommend 
+	</select>
+	
+	<select id="findID" parameterType="Map" resultType="com.jnmd.liuwan.domain.Recommend">
+		select *
+		from bsl_recommend
+		where rid=#{rid}
+	</select>
+	
+	<delete id="delete" parameterType="com.jnmd.liuwan.domain.Recommend">
+		delete from bsl_recommend where rid=#{rid}
+	</delete>
+	<update id="updateRec" parameterType="Map">
+		update bsl_recommend set
+		title=#{title},description=#{description},
+		introduce=#{introduce},price=#{price},
+		likes=#{likes},comment=#{comment}
+		where rid=#{rid}
+	</update>
+	
+	<select id="getRecommend" resultType="Recommend">
+		select rid,title,description,introduce,price,likes,comment
+		from bsl_recommend 
+		where rid = #{rid}
+	</select>
+	
+	<insert id="saveRecommend">
+		insert into bsl_recommend(title, description, introduce,price,likes,comment) 
+		values(#{title},#{description},#{introduce},#{price},#{likes},#{comment})
+	</insert>
 </mapper>

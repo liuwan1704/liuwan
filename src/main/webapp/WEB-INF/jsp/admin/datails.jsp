@@ -7,10 +7,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="./css/public.css">
 <link rel="stylesheet" href="./css/hotelList.css">
-<title>酒店列表</title>
+<title>Insert title here</title>
 </head>
 <body>
-<div class="wrap">
+		<div class="wrap">
 		<div class="header">
 			<div class="con">
 				<!-- 头部内容 -->
@@ -38,56 +38,31 @@
 				</div>
 			</div>
 		</div>
+		<div class="banner"></div>
 		<div id="content">
-			<c:forEach	items="${hotels }" var="s">
-				<div class="Hotel_Detail">
-				<div class="hotel_pics">
-					<img src="${s.picPath }" alt="${s.hotel.name }">
-				</div>
-				<div class="hotel_msg">
-					<p class="hotel_name">${s.hotel.name }</p>
+			<div class="hotel_msg">
 					<div class="msg_bottom">
 						<div class="msg_left">
-							<p class="level">酒店星级:</p>
-							<p class="level">联系方式:</p>
-							<p class="level">酒店地址:</p>
-							<p class="level">房间特色:</p>
-							<p class="level">酒店服务:</p>
+							<p class="level">行程标题:</p>
+							<p class="level">顾客评论:</p>
+							<p class="level">行程介绍:</p>
+							<p class="level">顾客点赞:</p>
+							<p class="level">行程描述:</p>
 						</div>
 						<div class="msg_mid">
-							<p class="level_msg">${s.hotel.level }星</p>
-							<p class="level_msg">${s.hotel.contact }</p>
-							<p class="level_msg">${s.hotel.address }</p>
-							<p class="level_msg">${s.hotel.feature }</p>
-							<p class="level_msg">${s.hotel.serverDesc }</p>
+							<p class="level_msg">${recommend.title }</p>
+							<p class="level_msg">${recommend.comment }</p>
+							<p class="level_msg">${recommend.introduce }</p>
+							<p class="level_msg">${recommend.price }</p>
+							<p class="level_msg">${recommend.description }</p>
 						</div>
 						<div class="msg_right">
-							<a class="hotel_handel" href="getAllHouse?hid=${s.hotel.hid }">详情</a>
-							<a class="hotel_handel" href="getHotel?hid=${s.hotel.hid }">修改</a>
-							<a class="hotel_handel" href="deleteHotel?hid=${s.hotel.hid }">删除</a>
+							<a href="Travel">返回</a>
 						</div>
 					</div>
 				</div>
 			</div>
-			</c:forEach>
 		</div>
-		<center id="cent">
-			<a href="<% request.getContextPath();%>getHotels?pageNum=1">首页</a>&nbsp;&nbsp;
-			<c:if test="${pageNum == 1 }">
-				上一页&nbsp;&nbsp;
-			</c:if>
-			<c:if test="${pageNum != 1 }">
-				<a href="<% request.getContextPath();%>getHotels?pageNum=${pageNum-1 }">上一页</a>&nbsp;&nbsp;
-			</c:if>
-			
-			<c:if test="${pageNum == pageMax }">
-				下一页&nbsp;&nbsp;
-			</c:if>
-			<c:if test="${pageNum != pageMax }">
-				<a href="<% request.getContextPath();%>getHotels?pageNum=${pageNum+1 }">下一页</a>&nbsp;&nbsp;
-			</c:if>
-			<a href="<% request.getContextPath();%>getHotels?pageNum=${pageMax }">尾页</a><br/><br/>
-		</center>
 		<div class="footer">
 			<div class="con1">
 			<div>

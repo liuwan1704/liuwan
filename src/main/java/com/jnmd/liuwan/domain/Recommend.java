@@ -6,7 +6,7 @@ public class Recommend {
 	private String description;
 	private String introduce;
 	private double price;
-	private int like;
+	private int likes;
 	private int comment;
 	public int getRid() {
 		return rid;
@@ -38,11 +38,11 @@ public class Recommend {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public int getLike() {
-		return like;
+	public int getLikes() {
+		return likes;
 	}
-	public void setLike(int like) {
-		this.like = like;
+	public void setLikes(int like) {
+		this.likes = like;
 	}
 	public int getComment() {
 		return comment;
@@ -53,14 +53,14 @@ public class Recommend {
 	public Recommend() {
 		super();
 	}
-	public Recommend(int rid, String title, String description, String introduce, double price, int like, int comment) {
+	public Recommend(int rid, String title, String description, String introduce, double price, int likes, int comment) {
 		super();
 		this.rid = rid;
 		this.title = title;
 		this.description = description;
 		this.introduce = introduce;
 		this.price = price;
-		this.like = like;
+		this.likes = likes;
 		this.comment = comment;
 	}
 }

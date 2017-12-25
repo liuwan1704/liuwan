@@ -1,16 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="./css/public.css">
-<link rel="stylesheet" href="./css/hotelList.css">
-<title>酒店列表</title>
+<link rel="stylesheet" href="./css/recommendList.css">
+<title>Insert title here</title>
 </head>
 <body>
-<div class="wrap">
+	<div class="wrap">
 		<div class="header">
 			<div class="con">
 				<!-- 头部内容 -->
@@ -38,37 +38,38 @@
 				</div>
 			</div>
 		</div>
+		<div class="banner"></div>
 		<div id="content">
-			<c:forEach	items="${hotels }" var="s">
-				<div class="Hotel_Detail">
-				<div class="hotel_pics">
-					<img src="${s.picPath }" alt="${s.hotel.name }">
-				</div>
-				<div class="hotel_msg">
-					<p class="hotel_name">${s.hotel.name }</p>
-					<div class="msg_bottom">
-						<div class="msg_left">
-							<p class="level">酒店星级:</p>
-							<p class="level">联系方式:</p>
-							<p class="level">酒店地址:</p>
-							<p class="level">房间特色:</p>
-							<p class="level">酒店服务:</p>
-						</div>
-						<div class="msg_mid">
-							<p class="level_msg">${s.hotel.level }星</p>
-							<p class="level_msg">${s.hotel.contact }</p>
-							<p class="level_msg">${s.hotel.address }</p>
-							<p class="level_msg">${s.hotel.feature }</p>
-							<p class="level_msg">${s.hotel.serverDesc }</p>
-						</div>
-						<div class="msg_right">
-							<a class="hotel_handel" href="getAllHouse?hid=${s.hotel.hid }">详情</a>
-							<a class="hotel_handel" href="getHotel?hid=${s.hotel.hid }">修改</a>
-							<a class="hotel_handel" href="deleteHotel?hid=${s.hotel.hid }">删除</a>
-						</div>
-					</div>
-				</div>
-			</div>
+			<!-- 主要内容 -->			
+			<ol id="title">
+				<!-- <li class="picture"></li> -->
+				<li class="house_msg">景点标题</li>
+				<li class="house_msg">景点介绍</li>
+				<li class="house_msg">景点价格</li>
+				<li class="house_msg">顾客点赞</li>
+				<li class="house_msg">顾客评论</li>
+				<li class="house_msg"></li>
+				<li class="house_msg"></li>
+				<li class="house_msg"></li>
+			</ol>
+			<c:forEach	 var="rec" items="${rec }">
+				<ol class="house_message">
+					<%-- <li class="house_pic"><img class="photo" src="${house.housePic[0].picPath }" alt="酒店图片"></li> --%>
+					<li class="message_house">${rec.title }</li>
+					<li class="message_house">${rec.introduce }</li>
+					<li class="message_house">${rec.price }</li>
+					<li class="message_house">${rec.likes }</li>
+					<li class="message_house">$${rec.comment }</li>
+					<li class="house_btnnn">
+						<a href="datail?rid=${rec.rid }">详情</a>
+					</li>
+					<li class="house_btnnn">
+						<a href="findRecommedById?rid=${rec.rid }">修改</a>
+					</li>
+					<li class="house_btnnn">
+						<a href="delete/${rec.rid }">删除</a><br />
+					</li>
+				</ol>
 			</c:forEach>
 		</div>
 		<center id="cent">
@@ -104,7 +105,7 @@
 					<li class="list">
 						<ul>
 							 <li><h3><a href="">帮助中心</a></h3></li>
-							 <li><a href="">赴台手续</a></li>				
+							 <li><a href=""赴台手续></a></li>				
 							 <li><a href="">遛弯玩法</a></li>				
 							 <li><a href="">常见问题</a></li>							
 						</ul>
