@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="./css/public.css">
-<link rel="stylesheet" href="./css/houseList.css">
-<title>房间列表</title>
+<link rel="stylesheet" href="./css/addHotelSuc.css">
+<title>addHotelSuccess</title>
 </head>
 <body>
 <div class="wrap">
@@ -27,43 +26,21 @@
 						<span class="DH2"></span>	
 				</div>
 				<div class="con2">
-						<span class="consy"><a class="shouye" href="#"></a></span>
-						<span class="con20"><a href="addHotel">添加酒店</a></span>
-						<span class="con20"><a href="#">添加房间</a></span>
+					<span class="consy"><a class="shouye" href="#"></a></span>
+					<span class="con20"><a href="addHotel">添加酒店</a></span>
 				</div>
 			</div>
 		</div>
 		<div class="banner"></div>
 		<div id="content">
-			<!-- 主要内容 -->			
-			<ol id="title">
-				<li class="picture"></li>
-				<li class="house_msg">城市</li>
-				<li class="house_msg">房间面积</li>
-				<li class="house_msg">楼层</li>
-				<li class="house_msg">是否无烟</li>
-				<li class="house_msg">可居住人数</li>
-				<li class="house_msg">价格</li>
-				<li class="house_msg"></li>
-				<li class="house_msg"></li>
-			</ol>
-			<c:forEach	items="${hotelPrices }" var="house">
-				<ol class="house_message">
-					<li class="house_pic"><img class="photo" src="${house.housePic[0].picPath }" alt="酒店图片"></li>
-					<li class="message_house">${house.province.cityName }</li>
-					<li class="message_house">${house.area }</li>
-					<li class="message_house">${house.floor }</li>
-					<li class="message_house">${house.smoke }</li>
-					<li class="message_house">${house.peomax }</li>
-					<li class="message_house">${house.price }</li>
-					<li class="house_btnnn">
-						<a class="bbbtn" href="##">修改</a>
-					</li>
-					<li class="house_btnnn">
-						<a class="bbbtn" href="deleteHouse?hpid=${house.hpid }">删除</a>
-					</li>
-				</ol>
-			</c:forEach>
+			<div id="addHotelSuc">
+				<p id="addYesOrNo">是否继续添加图片？？</p>
+				<hr/>
+				<div id="doMsgFa">
+					<a id="doMsg1" class="doMsg" href="toAddHotelPic?hid=${hid }">是</a><br/>
+					<a id="doMsg2" class="doMsg" href="doNotAddPic?pageNum=1">否</a>
+				</div>
+			</div>
 		</div>
 		<div class="footer">
 			<div class="con1">
@@ -81,7 +58,7 @@
 					<li class="list">
 						<ul>
 							 <li><h3><a href="">帮助中心</a></h3></li>
-							 <li><a href=""赴台手续></a></li>				
+							 <li><a href="">赴台手续</a></li>				
 							 <li><a href="">遛弯玩法</a></li>				
 							 <li><a href="">常见问题</a></li>							
 						</ul>

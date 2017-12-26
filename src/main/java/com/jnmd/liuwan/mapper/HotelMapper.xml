@@ -6,27 +6,31 @@
 	<select id="maxNum" resultType="int">
 		select count(*) from hotel_msg
 	</select>
-	<select id="getHotels" parameterType="Map" resultMap="HotelPic">
+	<select id="getHotels" parameterType="Map" resultType="com.jnmd.liuwan.domain.Hotel" resultMap="HotelSelect">
 		select *
-		from hotel_msg h,hotel_pic p 
-		where p.hid = h.hid
-		limit #{start},#{pagesize} 
+		from hotel_msg  
+		limit #{start},#{pagesize}
+		<!-- on
+		h.hid = p.hid
+		where
+		h.hid in 
+		(select h.hid from hotel_msg h where order by h.hid limit #{start},#{pagesize} ) -->
+		<!-- limit #{start},#{pagesize} -->
 	</select>
-	<resultMap type="com.jnmd.liuwan.domain.HotelPic" id="HotelPic">
-         <id property="pid" column="pid"/>
-         <result property="picPath" column="picpath"/>
-         <association property="hotel" javaType="com.jnmd.liuwan.domain.Hotel">
-             <id property="hid" column="hid"/>
-             <result property="name" column="name"/>
-             <result property="contact" column="contact"/>
-             <result property="address" column="address"/>
-             <result property="feature" column="feature"/>
-             <result property="level" column="level"/>
-             <result property="serverDesc" column="serverDesc"/>
-             <result property="intime" column="intime"/>
-             <result property="outtime" column="outtime"/>
-         </association>
-     </resultMap>
+	<resultMap type="com.jnmd.liuwan.domain.Hotel" id="HotelSelect">
+		<id property="hid" column="hid"/>
+        <result property="name" column="name"/>
+        <result property="contact" column="contact"/>
+        <result property="address" column="address"/>
+        <result property="feature" column="feature"/>
+        <result property="level" column="level"/>
+        <result property="serverDesc" column="serverDesc"/>
+        <result property="intime" column="intime"/>
+        <result property="outtime" column="outtime"/>
+        <collection property="hotelPics" column="hid" ofType="com.jnmd.liuwan.domain.HotelPic" 
+        select="com.jnmd.liuwan.mapper.HotelPicMapper.getHotelPicList">
+   		</collection>
+	</resultMap>
      <resultMap type="com.jnmd.liuwan.domain.HotelPrice" id="houseList">
      	<id property="hpid" column="hpid"/>
    		<result property="price" column="price"/>
@@ -97,4 +101,7 @@
      <select id="getHotel" parameterType="int" resultType="hotel">
      	select * from hotel_msg where hid=#{hid}
      </select>
+     <delete id="deleteAHotelPicByPath" parameterType="Map">
+     	delete from hotel_pic where picpath=#{picPath} and hid=#{hid }
+     </delete>
 </mapper>

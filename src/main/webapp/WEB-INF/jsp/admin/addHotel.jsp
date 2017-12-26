@@ -28,29 +28,26 @@
 				<div class="con2">
 						<span class="consy"><a class="shouye" href="#"></a></span>
 						<span class="con20"><a href="addHotel">添加酒店</a></span>
-						<span class="con20"><a href="#">目的地</a></span>
-						<span class="con20"><a href="#">自订行程</a></span>
-						<span class="con20"><a href="#">游记</a></span>
-						<span class="con20"><a href="#">特产</a></span>
-						<span class="con20"><a href="#">优惠</a></span>
-						<span class="con20"><a href="#">环岛巴士</a></span>
 				</div>
 			</div>
 		</div>
 		<div class="banner"></div>
 		<div id="content">
-			<form action="addAHotel" method="post">
-				酒店名称:<input type="text" name="name"/><br/>
-				联系方式:<input type="text" name="contact"/><br/>
-				酒店地址:<input type="text" name="address"/><br/>
-				酒店特色:<input type="text" name="feature"/><br/>
-				酒店星级:<input type="text" name="level"/><br/>
-				酒店服务:<input type="text" name="serverDesc"/><br/>
-				服务时间:<input type="text" name="intime"/>
-				<input type="text" name="outtime"/><br/>
-				<input type="submit" value="提交"/>
-				<input type="reset" value="重置"/>
+			<p id="add">添加酒店:</p>
+			<hr/>
+			<form id="addHotel" action="addAHotel" method="post">
+				酒店名称:<input class="message" type="text" name="name"/><br/>
+				联系方式:<input class="message" type="text" name="contact"/><br/>
+				酒店地址:<input class="message" type="text" name="address"/><br/>
+				酒店特色:<input class="message" type="text" name="feature"/><br/>
+				酒店星级:<input class="message" type="text" name="level"/><br/>
+				酒店服务:<input class="message" type="text" name="serverDesc"/><br/>
+				服务时间:<input class="message" type="text" name="intime"/><br/>
+				服务结束:<input class="message" id="outtime" type="text" name="outtime"/><br/>
+				<input class="button" style="height:40px;" type="submit" value="提交"/>
+				<input class="button" style="height:40px;" type="reset" value="重置"/>
 			</form>
+			<hr/>
 		</div>
 		<div class="footer">
 			<div class="con1">

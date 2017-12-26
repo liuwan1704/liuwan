@@ -78,15 +78,19 @@ public class HotelController {
 		return mv;
 	}
 	@RequestMapping("/deleteHotel")
-	public ModelAndView deleteHotel(HttpServletRequest request){
+	public String deleteHotel(int hid,int pageNum){
 		Map<String,Object> map = new HashMap<String,Object>();
-		int hid = Integer.parseInt(request.getParameter("hid"));
 		map.put("hid", hid);
 		ModelAndView mv = new ModelAndView();
 		hotelService.deleteHotel(map);
-		mv.setViewName("test");
-		return mv;
-		
+		int maxNum = hotelService.maxNum();
+		if(pageNum*5>maxNum){
+			pageNum=pageNum-1;
+		}
+		if(pageNum<=1){
+			pageNum=1;
+		}
+		return "redirect:getHotels?pageNum="+pageNum;
 	}
 	@RequestMapping("/addHotel")
 	public ModelAndView addHotel(){
@@ -117,8 +121,20 @@ public class HotelController {
         }  
         hotelService.addHotelPic(map);
         file.transferTo(dir);
-        mv.setViewName("test");
+        mv.addObject("hid", hid);
+        mv.setViewName("addHotelSuc");
         return mv;
+	}
+	@RequestMapping("/toAddHotelPic")
+	public ModelAndView toAddHotelPic(int hid){
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("hid", hid);
+		mv.setViewName("addHotelPic");
+		return mv;
+	}
+	@RequestMapping("/doNotAddPic")
+	public String toHotelList(int pageNum){
+		return "redirect:getHotels?pageNum="+pageNum;
 	}
 	@RequestMapping("/getHotel")
 	public ModelAndView getHotel(int hid){
@@ -134,5 +150,24 @@ public class HotelController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("test");
 		return mv;
+	}
+	@RequestMapping("/deleteAHotelPicByPath")
+	public String deleteAHotelPic(int pageNum,String picPath,int hid,HttpServletRequest request){
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("picPath", picPath);
+		map.put("hid", hid);
+		System.out.println(picPath);
+		hotelService.deleteAHotelPic(map);
+		String relativePath = "/img/msgimg";
+		String absolutePath = request.getSession().getServletContext().getRealPath(relativePath);
+		String[] fileNames = picPath.split("/");
+		String fileName = fileNames[fileNames.length-1];
+		System.out.println(absolutePath);
+		File file = new File(absolutePath+"\\"+fileName);
+		System.out.println(absolutePath+"\\"+fileName);
+		if(file.exists()){
+			file.delete();
+		}
+		return "redirect:getHotels?pageNum="+pageNum;
 	}
 }

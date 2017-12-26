@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jnmd.liuwan.mapper.HotelPicMapper">
+	<resultMap id="getHotelPics" type="com.jnmd.liuwan.domain.HotelPic">
+		<id column="pid" property="pid"/>
+		<result column="picpath" property="picPath"/>
+	</resultMap>
+	<select id="getHotelPicList" parameterType="int" resultMap="getHotelPics">
+		select * from
+		hotel_pic where
+		hid = #{hid}
+	</select>
+</mapper>

@@ -6,12 +6,9 @@
 	background-color: rgba(10, 10, 10, 0.77);
 	padding:30px 0;
 }
-#add{
-	text-align:left;
-	color:#fff;
-	font-size:16px;
-}
-#addHotel{
+#addHotelPic{
+	padding-top:150px;
+	height:300px;
 	padding-left:30px;
 	padding-bottom:20px;
 	width:420px;
@@ -25,17 +22,9 @@
     -webkit-box-shadow: 0 -5px 10px 1px rgba(16, 16, 16, 0.57);
     box-shadow: 0 -5px 10px 1px rgba(16, 16, 16, 0.57);
 }
-.message{
-	height:30px;
-	margin: 15px auto;
-	border-bottom:1px solid rgba(238, 238, 238, 0.41);
-	background:transparent;
-	color:#fff;
-	font-size:16px;
-}
 .button{
+	margin:20px 0 0 100px;
 	width: 40%;
-	height:20%;
     padding: 10px 0;
     font-size: 16px;
     font-weight: 100;
@@ -56,4 +45,13 @@
     -o-transition:0.5s all;
     -ms-transition:0.5s all;
     text-decoration: none;
+}
+#picFile{
+	margin-top:200px;
+	height:30px;
+	margin: 15px auto;
+	border-bottom:1px solid rgba(238, 238, 238, 0.41);
+	background:transparent;
+	color:#fff;
+	font-size:16px;
 }

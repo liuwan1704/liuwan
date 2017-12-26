@@ -27,14 +27,8 @@
 						<span class="DH2"></span>	
 				</div>
 				<div class="con2">
-						<span class="consy"><a class="shouye" href="#"></a></span>
+						<span class="consy"><a class="shouye" href="<% request.getContextPath();%>getHotels?pageNum=1"></a></span>
 						<span class="con20"><a href="addHotel">添加酒店</a></span>
-						<span class="con20"><a href="#">目的地</a></span>
-						<span class="con20"><a href="#">自订行程</a></span>
-						<span class="con20"><a href="#">游记</a></span>
-						<span class="con20"><a href="#">特产</a></span>
-						<span class="con20"><a href="#">优惠</a></span>
-						<span class="con20"><a href="#">环岛巴士</a></span>
 				</div>
 			</div>
 		</div>
@@ -42,10 +36,10 @@
 			<c:forEach	items="${hotels }" var="s">
 				<div class="Hotel_Detail">
 				<div class="hotel_pics">
-					<img src="${s.picPath }" alt="${s.hotel.name }">
+					<img src="${s.hotelPics[0].picPath }" alt="${s.name }">
 				</div>
 				<div class="hotel_msg">
-					<p class="hotel_name">${s.hotel.name }</p>
+					<p class="hotel_name">${s.name }</p>
 					<div class="msg_bottom">
 						<div class="msg_left">
 							<p class="level">酒店星级:</p>
@@ -56,23 +50,32 @@
 							<p class="level">服务时间:</p>
 						</div>
 						<div class="msg_mid">
-							<p class="level_msg">${s.hotel.level }星</p>
-							<p class="level_msg">${s.hotel.contact }</p>
-							<p class="level_msg">${s.hotel.address }</p>
-							<p class="level_msg">${s.hotel.feature }</p>
-							<p class="level_msg">${s.hotel.serverDesc }</p>
-							<p class="level_msg">${s.hotel.intime }--${s.hotel.outtime }</p>
+							<p class="level_msg">${s.level }星</p>
+							<p class="level_msg">${s.contact }</p>
+							<p class="level_msg">${s.address }</p>
+							<p class="level_msg">${s.feature }</p>
+							<p class="level_msg">${s.serverDesc }</p>
+							<p class="level_msg">${s.intime }--${s.outtime }</p>
 						</div>
 						<div class="msg_right">
-							<a class="hotel_handel" href="getAllHouse?hid=${s.hotel.hid }">详情</a>
-							<a class="hotel_handel" href="getHotel?hid=${s.hotel.hid }">修改</a>
-							<a class="hotel_handel" href="deleteHotel?hid=${s.hotel.hid }">删除</a>
+							<a class="hotel_handel" href="getAllHouse?hid=${s.hid }">详情</a>
+							<a class="hotel_handel" href="getHotel?hid=${s.hid }">修改</a>
+							<a class="hotel_handel" href="deleteHotel?hid=${s.hid }&pageNum=${pageNum}">删除</a>
 						</div>
 					</div>
 				</div>
 			</div>
+			<hr/>
+			<div id="allPics">
+				<c:forEach items="${s.hotelPics }" var="pic">
+					<div class="hotelPicture"><img alt="酒店图片" src="${pic.picPath }"><a class="deletePic" href="deleteAHotelPicByPath?picPath=${pic.picPath}&pageNum=${pageNum }&hid=${s.hid}">删除</a></div>
+				</c:forEach>
+				<a class="addHotelPic" href="toAddHotelPic?hid=${s.hid }">添加图片</a>
+			</div>
+			<hr/>
 			</c:forEach>
 		</div>
+		<hr/>
 		<center id="cent">
 			<a href="<% request.getContextPath();%>getHotels?pageNum=1">首页</a>&nbsp;&nbsp;
 			<c:if test="${pageNum == 1 }">

@@ -1,9 +1,9 @@
 @CHARSET "UTF-8";
 #content{
 	width: 1000px;
-	height: 1230px;
 	margin: 0 auto;
 	overflow: hidden;
+	min-height:380px;
 }
 .Hotel_Detail{
 	width: 1000px;
@@ -16,7 +16,6 @@
 	width: 312px;
 	height: 220px;
 	float: left;
-	background: red;
 	position: relative;
 }
 .hotel_pics img{
@@ -87,4 +86,45 @@
 	width: 1000px;
 	margin: 0 auto;
 	padding-top: 5px;
+}
+#allPics{
+	width:1000px;
+	min-height:100px;
+	overflow:hidden;
+	position: relative;
+}
+.hotelPicture{
+	float:left;
+	width:150px;
+	height:100px;
+	position: relative;
+}
+.hotelPicture img{
+	width:150px;
+	height:100px;
+}
+.deletePic{
+	display:block;
+	width:40px;
+	height:20px;
+	position: absolute;
+	top:0;
+	right:0;
+	text-align: center;
+	color:#fff;
+	background:rgba(10, 10, 10, 0.37);
+	border-radius: 10px;
+}
+.addHotelPic{
+	display:block;
+	width:90px;
+	height:30px;
+	text-align:center;
+	background:#ffa000;
+	line-height:30px;
+	border-radius:10px;
+	color:#fff;
+	position: absolute;
+	right:0;
+	bottom:30px;
 }

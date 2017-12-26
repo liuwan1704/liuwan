@@ -65,4 +65,8 @@ public class HotelService{
 	public Hotel getHotel(int hid){
 		return hotelMapper.getHotel(hid);
 	}
+	@Transactional(propagation=Propagation.SUPPORTS)
+	public void deleteAHotelPic(Map<String,Object> map){
+		hotelMapper.deleteAHotelPicByPath(map);
+	}
 }
