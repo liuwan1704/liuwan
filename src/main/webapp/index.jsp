@@ -9,6 +9,7 @@
 <body>
 <h2>dasdadsa</h2>
 <a href="getHotels?pageNum=1">酒店列表</a>
+<a href="addHotel">添加酒店</a>
 <a href="Travel">行程管理</a>
 <a href="Change">添加行程</a>
 </body>

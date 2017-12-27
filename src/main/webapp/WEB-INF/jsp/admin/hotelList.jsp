@@ -65,6 +65,7 @@
 							<a class="hotel_handel" href="getAllHouse?hid=${s.hotel.hid }">详情</a>
 							<a class="hotel_handel" href="getHotel?hid=${s.hotel.hid }">修改</a>
 							<a class="hotel_handel" href="deleteHotel?hid=${s.hotel.hid }">删除</a>
+							<a class="hotel_handel" href="addHouse?hid=${s.hotel.hid }">添加房间</a>
 						</div>
 					</div>
 				</div>

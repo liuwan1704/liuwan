@@ -35,4 +35,23 @@ public interface HotelMapper {
 	public Recommend getRecommend(int rid);
 	
 	public void saveRecommend(Recommend recommend);
+	
+	
+	
+	
+	
+	
+	
+	
+	public void addHotel(Hotel hotel);
+	public void addHotelPic(Map<String,Object> map);
+	
+	public void saveMid(Map<String,Integer> map);
+	public void saveHouse(Map<String,Object> map);
+	
+	
+	public int maxId();
+	public void saveHousePic(Map<String,Object> map);
+	
+	public void updateHousePic(Map<String, Object> map);
 }

@@ -1,5 +1,7 @@
 package com.jnmd.liuwan.controller.hotelController;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +13,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jnmd.liuwan.domain.Hotel;
@@ -114,13 +117,57 @@ public class HotelController {
 	
 	
 	@RequestMapping("/updatePageHouse")
-	public String updateHouse(HttpServletRequest request,HotelPrice hotelPrice){
+	public ModelAndView updateHouse(int hpid,HttpServletRequest request,HotelPrice hotelPrice){
 		
-		
+		ModelAndView mv = new ModelAndView();
 		hotelService.updateHouse(hotelPrice);
-		
-		return "forward:/WEB-INF/jsp/admin/updateHouseSuccess.jsp";
+		mv.addObject("hpid",hpid);
+		mv.setViewName("updateHousePic");
+		return mv;
 	}
+	@RequestMapping("/updateHousePic")
+	public ModelAndView updateHousePic(int hpid,HttpServletRequest request,MultipartFile file){
+		ModelAndView mv = new ModelAndView();
+		Map<String,Object> map=new HashMap<String, Object>();
+		String path = request.getSession().getServletContext().getRealPath("/img/msgimg");  
+	    String fileName = file.getOriginalFilename();  
+	    String picPath = "./img/msgimg/"+fileName;
+	    System.out.println(picPath);
+	    System.out.println(hpid);
+	    File dir = new File(path, fileName);  
+        if(!dir.exists()){  
+            dir.mkdirs();  
+        }  
+        try {
+			file.transferTo(dir);
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        map.put("picPath", picPath);
+        map.put("hpid", hpid);
+        hotelService.updateHousePic(map);
+        mv.setViewName("updateHouseSucc");
+		
+		
+		return mv;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	//举
 	
@@ -208,4 +255,110 @@ public class HotelController {
 		hotelService.saveRecommend(recommend);
 		return "forward:/WEB-INF/jsp/admin/saveRecommendSucc.jsp";
 	}
+	
+	
+	
+	//.........
+	@RequestMapping("/addHotel")
+	public ModelAndView addHotel(){
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("addHotel");
+		return mv;
+	}
+	@RequestMapping("/addAHotel")
+	public ModelAndView addAhotel(Hotel hotel){
+		ModelAndView mv = new ModelAndView();
+		hotelService.addHotel(hotel);
+		mv.addObject("hid", hotel.getHid());
+		mv.setViewName("addHotelPic");
+		return mv;
+	}
+	@RequestMapping("/addHotelPic")
+	public ModelAndView addHotelPic(int hid,MultipartFile file,HttpServletRequest request)throws IOException{
+		Map<String,Object> map = new HashMap<String,Object>();
+		ModelAndView mv = new ModelAndView();
+		map.put("hid", hid);
+       String path = request.getSession().getServletContext().getRealPath("/img/msgimg");  
+       String fileName = file.getOriginalFilename();  
+        String picPath = "./img/msgimg/"+fileName;
+        map.put("picPath", picPath);
+        File dir = new File(path, fileName);  
+        if(!dir.exists()){  
+            dir.mkdirs();  
+        }  
+        hotelService.addHotelPic(map);
+        file.transferTo(dir);
+        mv.setViewName("addHotelSucc");
+       return mv;
+	}
+	
+	
+	
+	@RequestMapping("/addHouse")
+	public ModelAndView addHouse(HttpServletRequest request){
+		ModelAndView mv = new ModelAndView();
+		int hid = Integer.parseInt(request.getParameter("hid"));
+		Map<String,Integer> map=new HashMap<String, Integer>();
+		map.put("hid", hid);
+		map.put("pid", hid);
+		hotelService.saveMid(map);
+		mv.setViewName("addHousePage");
+		
+		return mv;
+	}
+	@RequestMapping("/addHouseCon")
+	public ModelAndView addHouseCon(HttpServletRequest request){
+		
+		ModelAndView mv = new ModelAndView();
+		int city_id=Integer.parseInt(request.getParameter("city_id"));
+		int house_id=Integer.parseInt(request.getParameter("house_id"));
+		double price=Double.parseDouble(request.getParameter("price"));
+		int area=Integer.parseInt(request.getParameter("area"));
+		int floor=Integer.parseInt(request.getParameter("floor"));
+		String smoke=request.getParameter("smoke");
+		int peomax=Integer.parseInt(request.getParameter("peomax"));
+		Map<String, Object> map=new HashMap<String, Object>();
+		map.put("city_id", city_id);
+		map.put("house_id", house_id);
+		map.put("price", price);
+		map.put("area", area);
+		map.put("floor", floor);
+		map.put("smoke", smoke);
+		map.put("peomax", peomax);
+		hotelService.saveHouse(map);
+		mv.setViewName("addHousePic");
+		
+		return mv;
+	}
+	
+	@RequestMapping("/addHousePic")
+	public ModelAndView addHousePic(HttpServletRequest request,MultipartFile file){
+		ModelAndView mv = new ModelAndView();
+		Map<String,Object> map=new HashMap<String, Object>();
+		String path = request.getSession().getServletContext().getRealPath("/img/msgimg");  
+	    String fileName = file.getOriginalFilename();  
+	    String picPath = "./img/msgimg/"+fileName;
+	    int housepid=hotelService.maxId();
+	    File dir = new File(path, fileName);  
+        if(!dir.exists()){  
+            dir.mkdirs();  
+        }  
+        try {
+			file.transferTo(dir);
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        map.put("picPath", picPath);
+        map.put("housepid", housepid);
+        hotelService.saveHousePic(map);
+        mv.setViewName("addHouseSucc");
+		
+		
+		return mv;
+	}
+	
 }

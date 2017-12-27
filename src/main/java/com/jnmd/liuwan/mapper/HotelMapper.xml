@@ -152,4 +152,71 @@
 		insert into bsl_recommend(title, description, introduce,price,likes,comment) 
 		values(#{title},#{description},#{introduce},#{price},#{likes},#{comment})
 	</insert>
+	
+	
+	
+	
+	
+	<insert id="addHotel" parameterType="Hotel">
+     	<selectKey keyColumn="hid" keyProperty="hid" order="AFTER" resultType="int">
+   			 select @@IDENTITY as hid
+  		</selectKey>
+     	insert into hotel_msg(name,contact,address,feature,level,serverDesc,intime,outtime)
+     	values(#{name},#{contact},#{address},#{feature},#{level},#{serverDesc},#{intime},#{outtime})
+     </insert>
+     <insert id="addHotelPic" parameterType="Map">
+     	insert into hotel_pic(hid,picPath) values(#{hid},#{picPath})
+     </insert>
+     <!-- <update id="updateHotel" parameterType="com.jnmd.liuwan.domain.Hotel">
+     	update hotel_msg
+		 <trim prefix="set" suffixOverrides=",">
+		  <if test="name!=null">name=#{name},</if>
+		  <if test="contact!=null">contact=#{contact},</if>
+		  <if test="address!=null">address=#{address},</if>
+		  <if test="feature!=null">feature=#{feature},</if>
+		  <if test="level!=null">level=#{level},</if>
+		  <if test="serverDesc!=null">serverDesc=#{serverDesc},</if>
+		  <if test="intime!=null">intime=#{intime},</if>
+		  <if test="outtime!=null">outtime=#{outtime},</if>
+		 </trim>
+		where hid=#{hid}
+     </update> -->
+     <!-- <select id="getHotel" parameterType="int" resultType="hotel">
+     	select * from hotel_msg where hid=#{hid}
+     </select> -->
+     
+     
+     
+     <insert id="saveMid">
+		insert into hotel_mid(hid,pid) 
+		values(#{hid},#{pid})
+	</insert>
+	<insert id="saveHouse" parameterType="Map">
+		insert into hotel_price(city_id,house_id,price,area,floor,smoke,peomax) 
+		values(#{city_id},#{house_id},#{price},#{area},#{floor},#{smoke},#{peomax})
+	</insert>
+	
+	
+	
+	<select id="maxId" resultType="int">
+		select max(hpid) from hotel_price
+	</select>
+	
+	<insert id="saveHousePic" parameterType="Map">
+		insert into house_pic(picPath,housepid) 
+		values(#{picPath},#{housepid})
+	</insert>
+	
+	
+	
+	
+	
+	
+	<update id="updateHousePic" parameterType="Map">
+		update house_pic set
+		picPath=#{picPath}
+		where hpid=#{hpid}
+	</update>
+	
+	
 </mapper>

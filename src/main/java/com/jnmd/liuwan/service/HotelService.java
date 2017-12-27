@@ -110,4 +110,46 @@ public class HotelService{
 		public void saveRecommend(Recommend recommend){
 			hotelMapper.saveRecommend(recommend);
 		}
+		
+		
+		
+		
+		
+		@Transactional(rollbackFor=HotelException.class)
+		public void addHotel(Hotel hotel){
+			hotelMapper.addHotel(hotel);
+		}
+		@Transactional(rollbackFor=HotelException.class)
+		public void addHotelPic(Map<String , Object> map){
+			hotelMapper.addHotelPic(map);
+		}
+		
+		
+		@Transactional(rollbackFor=HotelException.class)
+		public void saveMid(Map<String,Integer> map){
+			hotelMapper.saveMid(map);
+		}
+		
+		
+		@Transactional(rollbackFor=HotelException.class)
+		public void saveHouse(Map<String,Object> map){
+			hotelMapper.saveHouse(map);
+		}
+		
+		
+		@Transactional(rollbackFor=HotelException.class)
+		public int maxId(){
+			return hotelMapper.maxId();
+		}
+		
+		@Transactional(rollbackFor=HotelException.class)
+		public void saveHousePic(Map<String, Object> map){
+			hotelMapper.saveHousePic(map);
+		}
+		
+		
+		@Transactional(rollbackFor=HotelException.class)
+		public void updateHousePic(Map<String, Object> map){
+			hotelMapper.updateHousePic(map);
+		}
 }
