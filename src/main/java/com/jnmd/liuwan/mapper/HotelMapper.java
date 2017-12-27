@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.jnmd.liuwan.domain.Hotel;
 import com.jnmd.liuwan.domain.HotelPrice;
+import com.jnmd.liuwan.domain.Province;
 
 @Repository
 public interface HotelMapper {
@@ -21,4 +22,11 @@ public interface HotelMapper {
 	public void updateHotel(Hotel hotel);
 	public Hotel getHotel(int hid);
 	public void deleteAHotelPicByPath(Map<String,Object> map);
+	public List<Province> getCityList();
+	public void addAHouse(HotelPrice house);
+	public void addHotelMid(Map<String,Object> map);
+	public void addHousePic(Map<String,Object> map);
+	public void updateHousePic(Map<String,Object> map);
+	public void updateHouseMessage(HotelPrice house);
+	public HotelPrice getAHouseById(int hpid);
 }

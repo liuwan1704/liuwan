@@ -27,9 +27,9 @@
 						<span class="DH2"></span>	
 				</div>
 				<div class="con2">
-						<span class="consy"><a class="shouye" href="#"></a></span>
-						<span class="con20"><a href="addHotel">添加酒店</a></span>
-						<span class="con20"><a href="#">添加房间</a></span>
+					<span class="consy"><a class="shouye" href="#"></a></span>
+					<span class="con20"><a href="addHotel">添加酒店</a></span>
+					<span class="con20"><a href="addHouse?hid=${hid }">添加房间</a></span>
 				</div>
 			</div>
 		</div>
@@ -49,7 +49,7 @@
 			</ol>
 			<c:forEach	items="${hotelPrices }" var="house">
 				<ol class="house_message">
-					<li class="house_pic"><img class="photo" src="${house.housePic[0].picPath }" alt="酒店图片"></li>
+					<li class="house_pic"><a id="changePic" href="changeHousePic?hid=${hid }&housepid=${house.hpid }&picPath=${house.housePic[0].picPath}">修改</a><img class="photo" src="${house.housePic[0].picPath }" alt="酒店图片"></li>
 					<li class="message_house">${house.province.cityName }</li>
 					<li class="message_house">${house.area }</li>
 					<li class="message_house">${house.floor }</li>
@@ -57,10 +57,10 @@
 					<li class="message_house">${house.peomax }</li>
 					<li class="message_house">${house.price }</li>
 					<li class="house_btnnn">
-						<a class="bbbtn" href="##">修改</a>
+						<a class="bbbtn" href="updateHouseMsg?hpid=${house.hpid }&hid=${hid}">修改</a>
 					</li>
 					<li class="house_btnnn">
-						<a class="bbbtn" href="deleteHouse?hpid=${house.hpid }">删除</a>
+						<a class="bbbtn" href="deleteHouse?hpid=${house.hpid }&hid=${hid}">删除</a>
 					</li>
 				</ol>
 			</c:forEach>

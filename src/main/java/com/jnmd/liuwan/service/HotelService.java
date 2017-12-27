@@ -5,15 +5,13 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.omg.CORBA.UserException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jnmd.liuwan.domain.Hotel;
-import com.jnmd.liuwan.domain.HotelMid;
-import com.jnmd.liuwan.domain.HotelPic;
 import com.jnmd.liuwan.domain.HotelPrice;
+import com.jnmd.liuwan.domain.Province;
 import com.jnmd.liuwan.exception.HotelException;
 import com.jnmd.liuwan.mapper.HotelMapper;
 
@@ -68,5 +66,34 @@ public class HotelService{
 	@Transactional(propagation=Propagation.SUPPORTS)
 	public void deleteAHotelPic(Map<String,Object> map){
 		hotelMapper.deleteAHotelPicByPath(map);
+	}
+	@Transactional(propagation=Propagation.SUPPORTS)
+	public List<Province> getCityList(){
+		return hotelMapper.getCityList();
+	}
+	
+	@Transactional(rollbackFor=HotelException.class)
+	public void addAHouse(HotelPrice house){
+		hotelMapper.addAHouse(house);
+	}
+	@Transactional(rollbackFor=HotelException.class)
+	public void addHotelMid(Map<String,Object> map){
+		hotelMapper.addHotelMid(map);
+	}
+	@Transactional(rollbackFor=HotelException.class)
+	public void addHousePic(Map<String,Object> map){
+		hotelMapper.addHousePic(map);
+	}
+	@Transactional(propagation=Propagation.SUPPORTS)
+	public void updateHousePic(Map<String,Object> map){
+		hotelMapper.updateHousePic(map);
+	}
+	@Transactional(propagation=Propagation.SUPPORTS)
+	public void updateHouseMessage(HotelPrice house){
+		hotelMapper.updateHouseMessage(house);
+	}
+	@Transactional(propagation=Propagation.SUPPORTS)
+	public HotelPrice getAHouse(int hpid){
+		return hotelMapper.getAHouseById(hpid);
 	}
 }

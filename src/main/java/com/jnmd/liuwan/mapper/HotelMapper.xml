@@ -10,12 +10,6 @@
 		select *
 		from hotel_msg  
 		limit #{start},#{pagesize}
-		<!-- on
-		h.hid = p.hid
-		where
-		h.hid in 
-		(select h.hid from hotel_msg h where order by h.hid limit #{start},#{pagesize} ) -->
-		<!-- limit #{start},#{pagesize} -->
 	</select>
 	<resultMap type="com.jnmd.liuwan.domain.Hotel" id="HotelSelect">
 		<id property="hid" column="hid"/>
@@ -104,4 +98,44 @@
      <delete id="deleteAHotelPicByPath" parameterType="Map">
      	delete from hotel_pic where picpath=#{picPath} and hid=#{hid }
      </delete>
+     <select id="getCityList" resultType="com.jnmd.liuwan.domain.Province">
+     	select * from province 
+     </select>
+     <insert id="addAHouse" parameterType="com.jnmd.liuwan.domain.HotelPrice" useGeneratedKeys="true" keyProperty="hpid">
+     	<selectKey keyColumn="hpid" keyProperty="hpid" order="AFTER" resultType="int">
+   			 select @@IDENTITY as hpid
+  		</selectKey>
+     	insert into hotel_price(city_id,house_id,price,area,floor,smoke,peomax)
+     	values(#{city_id},#{house_id},#{price},#{area},#{floor},#{smoke},#{peomax})
+     </insert>
+     <insert id="addHotelMid" parameterType="Map">
+     	insert into hotel_mid(pid,hid) values(#{pid},#{hid})
+     </insert>
+     <insert id="addHousePic" parameterType="Map">
+     	insert into house_pic(picPath,housepid) values(#{picPath},#{housepid})
+     </insert>
+     <update id="updateHousePic" parameterType="Map">
+     	update house_pic
+		 <trim prefix="set" suffixOverrides=",">
+		  <if test="picPath!=null">picPath=#{picPath},</if>
+		 </trim>
+		where housepid=#{housepid}
+     </update>
+     
+     <update id="updateHouseMessage" parameterType="com.jnmd.liuwan.domain.HotelPrice">
+     	update hotel_price
+		 <trim prefix="set" suffixOverrides=",">
+		  <if test="city_id!=null">city_id=#{city_id},</if>
+		  <if test="house_id!=null">house_id=#{house_id},</if>
+		  <if test="price!=null">price=#{price},</if>
+		  <if test="area!=null">area=#{area},</if>
+		  <if test="floor!=null">floor=#{floor},</if>
+		  <if test="smoke!=null">smoke=#{smoke},</if>
+		  <if test="peomax!=null">peomax=#{peomax},</if>
+		 </trim>
+		where hpid=#{hpid}
+     </update>
+     <select id="getAHouseById" parameterType="int" resultType="com.jnmd.liuwan.domain.HotelPrice">
+     	select * from hotel_price where hpid = #{hpid}
+     </select>
 </mapper>

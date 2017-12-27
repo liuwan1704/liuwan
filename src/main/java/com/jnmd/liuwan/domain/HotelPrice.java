@@ -6,6 +6,8 @@ public class HotelPrice {
 	private int hpid;
 	private Province province;
 	private HouseType houseType;
+	private int city_id;
+	private int house_id;
 	private double price;
 	private int area;
 	private int floor;
@@ -29,6 +31,18 @@ public class HotelPrice {
 	}
 	public void setHouseType(HouseType houseType) {
 		this.houseType = houseType;
+	}
+	public int getCity_id() {
+		return city_id;
+	}
+	public void setCity_id(int city_id) {
+		this.city_id = city_id;
+	}
+	public int getHouse_id() {
+		return house_id;
+	}
+	public void setHouse_id(int house_id) {
+		this.house_id = house_id;
 	}
 	public double getPrice() {
 		return price;
@@ -66,15 +80,36 @@ public class HotelPrice {
 	public void setHousePic(List<HousePic> housePic) {
 		this.housePic = housePic;
 	}
-	public HotelPrice() {
+	
+	public HotelPrice(int hpid, int city_id, int house_id, double price, int area, int floor, char smoke, int peomax) {
 		super();
+		this.hpid = hpid;
+		this.city_id = city_id;
+		this.house_id = house_id;
+		this.price = price;
+		this.area = area;
+		this.floor = floor;
+		this.smoke = smoke;
+		this.peomax = peomax;
 	}
-	public HotelPrice(int hpid, Province province, HouseType houseType, double price, int area, int floor, char smoke,
-			int peomax, List<HousePic> housePic) {
+	public HotelPrice(int city_id, int house_id, double price, int area, int floor, char smoke, int peomax) {
+		super();
+		this.city_id = city_id;
+		this.house_id = house_id;
+		this.price = price;
+		this.area = area;
+		this.floor = floor;
+		this.smoke = smoke;
+		this.peomax = peomax;
+	}
+	public HotelPrice(int hpid, Province province, HouseType houseType, int city_id, int house_id, double price,
+			int area, int floor, char smoke, int peomax, List<HousePic> housePic) {
 		super();
 		this.hpid = hpid;
 		this.province = province;
 		this.houseType = houseType;
+		this.city_id = city_id;
+		this.house_id = house_id;
 		this.price = price;
 		this.area = area;
 		this.floor = floor;
@@ -82,11 +117,15 @@ public class HotelPrice {
 		this.peomax = peomax;
 		this.housePic = housePic;
 	}
+	public HotelPrice() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	@Override
 	public String toString() {
-		return "HotelPrice [hpid=" + hpid + ", province=" + province + ", houseType=" + houseType + ", price=" + price
-				+ ", area=" + area + ", floor=" + floor + ", smoke=" + smoke + ", peomax=" + peomax + ", housePic="
-				+ housePic + "]";
+		return "HotelPrice [hpid=" + hpid + ", province=" + province + ", houseType=" + houseType + ", city_id="
+				+ city_id + ", house_id=" + house_id + ", price=" + price + ", area=" + area + ", floor=" + floor
+				+ ", smoke=" + smoke + ", peomax=" + peomax + ", housePic=" + housePic + "]";
 	}
 	
 	
